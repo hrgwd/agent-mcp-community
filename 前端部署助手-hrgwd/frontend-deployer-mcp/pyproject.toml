@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentx-frontend-deployer-mcp"
+version = "0.1.0"
+description = "面向 AgentX 工具市场的安全前端构建与静态部署 MCP 服务"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "AgentXBuilder Contributors" }
+]
+dependencies = [
+    "mcp>=1.28.0,<2"
+]
+
+[project.scripts]
+frontend-deployer-mcp = "frontend_deployer_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/frontend_deployer_mcp"]

@@ -1,0 +1,29 @@
+{
+  "name": "前端部署助手",
+  "subtitle": "自动构建并发布公开 Git 仓库中的静态前端项目",
+  "description": "从 GitHub、GitLab 或 Bitbucket 的公开仓库拉取前端代码，自动识别 npm、pnpm、yarn 或 bun，安装锁定依赖、执行 package.json 中的构建脚本，并将 dist、build 或 out 静态产物发布到受控目录。工具不接受任意 Shell 命令，并对仓库协议、站点名和输出路径进行安全校验。",
+  "labels": [
+    "前端部署",
+    "DevOps",
+    "静态站点",
+    "MCP"
+  ],
+  "uploadUrl": "https://github.com/hrgwd/AgentXBuilder/tree/frontend-deployer-mcp/tools/frontend-deployer-mcp",
+  "installCommand": {
+    "mcpServers": {
+      "frontend-deployer": {
+        "command": "uvx",
+        "args": [
+          "--from",
+          "git+https://github.com/hrgwd/AgentXBuilder.git@frontend-deployer-mcp#subdirectory=tools/frontend-deployer-mcp",
+          "frontend-deployer-mcp"
+        ],
+        "env": {
+          "FRONTEND_DEPLOY_WORK_ROOT": "/tmp/agentx-frontend-work",
+          "FRONTEND_DEPLOY_TARGET_ROOT": "/data/frontend-deployments"
+        }
+      }
+    }
+  },
+  "isGlobal": false
+}
